@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elpriskollen</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="android-icon.png">
+  <meta name="theme-color" content="#0f0f0f">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <h1 class="app-title"><i class="ti ti-bolt"></i> Elpriskollen</h1>
+      <div class="app-zone">
+        <select id="zoneSelect">
+          <option value="SE1">SE1 — Luleå</option>
+          <option value="SE2">SE2 — Sundsvall</option>
+          <option value="SE3" selected>SE3 — Stockholm</option>
+          <option value="SE4">SE4 — Malmö</option>
+        </select>
+      </div>
+    </header>
+
+    <main id="tabContent" class="tab-content"></main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-tab="home">
+        <i class="ti ti-home"></i>
+        <span>Start</span>
+      </button>
+      <button class="nav-btn" data-tab="tider">
+        <i class="ti ti-clock"></i>
+        <span>Tider</span>
+      </button>
+      <button class="nav-btn" data-tab="priser">
+        <i class="ti ti-chart-bar"></i>
+        <span>Priser</span>
+      </button>
+      <button class="nav-btn" data-tab="apparater">
+        <i class="ti ti-plug"></i>
+        <span>Apparater</span>
+      </button>
+      <button class="nav-btn" data-tab="installningar">
+        <i class="ti ti-settings"></i>
+        <span>Inställningar</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+    }
+  </script>
+  <script src="tabs/home.js"></script>
+  <script src="tabs/tider.js"></script>
+  <script src="tabs/priser.js"></script>
+  <script src="tabs/apparater.js"></script>
+  <script src="tabs/installningar.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
